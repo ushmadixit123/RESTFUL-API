@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/restAPI").then(()=>console.log("database connected!")).catch((err)=>console.log(err));
 
 app.use(morgan('dev')); 
+app.use('/uploads',express.static('uploads'))
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json()); 
 app.use((req, res, next)=>{
